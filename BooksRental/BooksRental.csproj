@@ -201,12 +201,25 @@
     <Compile Include="Migrations\201712281706488_InitialModel.Designer.cs">
       <DependentUpon>201712281706488_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712281729201_AddIsSubscribedToNewsLetter.cs" />
+    <Compile Include="Migrations\201712281729201_AddIsSubscribedToNewsLetter.Designer.cs">
+      <DependentUpon>201712281729201_AddIsSubscribedToNewsLetter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712281738153_AddMembershipType.cs" />
+    <Compile Include="Migrations\201712281738153_AddMembershipType.Designer.cs">
+      <DependentUpon>201712281738153_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712281741511_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\201712281741511_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>201712281741511_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\RandomBookViewModel.cs" />
@@ -295,6 +308,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712281706488_InitialModel.resx">
       <DependentUpon>201712281706488_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712281729201_AddIsSubscribedToNewsLetter.resx">
+      <DependentUpon>201712281729201_AddIsSubscribedToNewsLetter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712281738153_AddMembershipType.resx">
+      <DependentUpon>201712281738153_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712281741511_PopulateMembershipTypes.resx">
+      <DependentUpon>201712281741511_PopulateMembershipTypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
