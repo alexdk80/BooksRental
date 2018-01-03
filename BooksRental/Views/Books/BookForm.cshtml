@@ -1,0 +1,37 @@
+﻿@model BooksRental.ViewModels.BookFormViewModel
+@{
+    ViewBag.Title = "NewBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Book</h2>
+
+@using (Html.BeginForm("Save", "Books"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Book.Name)
+        @Html.TextBoxFor(m => m.Book.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Book.Author)
+        @Html.TextBoxFor(m => m.Book.Author, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Book.NumberInStock)
+        @Html.TextBoxFor(m => m.Book.NumberInStock, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Book.ReleaseDate)
+        @Html.TextBoxFor(m => m.Book.ReleaseDate, "{0:d MMM yyyy}" ,new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Book.DateAdded)
+        @Html.TextBoxFor(m => m.Book.DateAdded, "{0:d MMM yyyy}" , new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Book.BookGenreId)
+        @Html.DropDownListFor(m => m.Book.BookGenreId, new SelectList(Model.BookGenres, "Id","Name"), "Select Book Genre", new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m=>m.Book.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+}

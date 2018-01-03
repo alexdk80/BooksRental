@@ -221,15 +221,42 @@
     <Compile Include="Migrations\201712281916193_AddNamePropertyToMembershipType.Designer.cs">
       <DependentUpon>201712281916193_AddNamePropertyToMembershipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712281927294_PopulateMembershipTypes1.cs" />
+    <Compile Include="Migrations\201712281927294_PopulateMembershipTypes1.Designer.cs">
+      <DependentUpon>201712281927294_PopulateMembershipTypes1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712281958073_AddBirthayPropertyToCustomer.cs" />
+    <Compile Include="Migrations\201712281958073_AddBirthayPropertyToCustomer.Designer.cs">
+      <DependentUpon>201712281958073_AddBirthayPropertyToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712282058122_NullableBirthDate.cs" />
+    <Compile Include="Migrations\201712282058122_NullableBirthDate.Designer.cs">
+      <DependentUpon>201712282058122_NullableBirthDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712291713531_PopulateMembershipTypes11.cs" />
+    <Compile Include="Migrations\201712291713531_PopulateMembershipTypes11.Designer.cs">
+      <DependentUpon>201712291713531_PopulateMembershipTypes11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712292110385_AddedBookPropertiesAndBookGenre.cs" />
+    <Compile Include="Migrations\201712292110385_AddedBookPropertiesAndBookGenre.Designer.cs">
+      <DependentUpon>201712292110385_AddedBookPropertiesAndBookGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801031105421_AddedRequiredToBookGenre.cs" />
+    <Compile Include="Migrations\201801031105421_AddedRequiredToBookGenre.Designer.cs">
+      <DependentUpon>201801031105421_AddedRequiredToBookGenre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\BookGenre.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\BookFormViewModel.cs" />
+    <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\RandomBookViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -296,6 +323,8 @@
     <Content Include="Views\Books\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Books\Details.cshtml" />
+    <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Books\BookForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -331,6 +360,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712281916193_AddNamePropertyToMembershipType.resx">
       <DependentUpon>201712281916193_AddNamePropertyToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712281927294_PopulateMembershipTypes1.resx">
+      <DependentUpon>201712281927294_PopulateMembershipTypes1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712281958073_AddBirthayPropertyToCustomer.resx">
+      <DependentUpon>201712281958073_AddBirthayPropertyToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712282058122_NullableBirthDate.resx">
+      <DependentUpon>201712282058122_NullableBirthDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712291713531_PopulateMembershipTypes11.resx">
+      <DependentUpon>201712291713531_PopulateMembershipTypes11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712292110385_AddedBookPropertiesAndBookGenre.resx">
+      <DependentUpon>201712292110385_AddedBookPropertiesAndBookGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801031105421_AddedRequiredToBookGenre.resx">
+      <DependentUpon>201801031105421_AddedRequiredToBookGenre.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
