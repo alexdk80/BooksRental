@@ -27,30 +27,39 @@ namespace BooksRental.Controllers
         {
             var genres = _context.BookGenres.ToList();
             var viewModel = new BookFormViewModel
-            {
+            {               
                 BookGenres = genres
             };
             return View("BookForm",viewModel);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Book book)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new BookFormViewModel(book)
+                {                    
+                    BookGenres=_context.BookGenres.ToList()
+                };
+                return View("BookForm", viewModel);
+            }
             if (book.Id==0)
             {
+                book.DateAdded = DateTime.Now;
                 _context.Books.Add(book);
             }
-            //else
-            //{
-            //    var bookIsInDb = _context.Books.Single(b => b.Id == book.Id);
-            //    bookIsInDb.Name = book.Name;
-            //    bookIsInDb.Author = book.Author;
-            //    bookIsInDb.NumberInStock = book.NumberInStock;
-            //    bookIsInDb.ReleaseDate = book.ReleaseDate;
-            //    bookIsInDb.DateAdded = book.DateAdded;
-            //    bookIsInDb.BookGenreId = book.BookGenreId;
-            //}
-            
-                _context.SaveChanges();           
+            else
+            {
+                var bookIsInDb = _context.Books.Single(b => b.Id == book.Id);
+                bookIsInDb.Name = book.Name;
+                bookIsInDb.Author = book.Author;
+                bookIsInDb.NumberInStock = book.NumberInStock;
+                bookIsInDb.ReleaseDate = book.ReleaseDate;                
+                bookIsInDb.BookGenreId = book.BookGenreId;
+            }
+
+            _context.SaveChanges();           
 
             return RedirectToAction("Index","Books");
         }
@@ -61,10 +70,9 @@ namespace BooksRental.Controllers
             {
                 return HttpNotFound();
             }
-            var viewModel = new BookFormViewModel()
+            var viewModel = new BookFormViewModel(book)
             {
-                Book = book,
-                BookGenres = _context.BookGenres.ToList()
+               BookGenres = _context.BookGenres.ToList()
             };
             return View("BookForm", viewModel);
         }

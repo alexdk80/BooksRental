@@ -9,10 +9,14 @@ namespace BooksRental.Models
     public class Book
     {
         public int Id { get; set; }
+        [Required]
+        [StringLength(255)]
         public string Name { get; set; }
+        [Required]
         public string Author { get; set; }
+        [Range(1,20)]
         [Display(Name="Number in Stock")]
-        public int NumberInStock { get; set; }
+        public byte NumberInStock { get; set; }
         [Display(Name="Release Date")]
         public DateTime ReleaseDate { get; set; }
         [Display(Name="Date Added")]

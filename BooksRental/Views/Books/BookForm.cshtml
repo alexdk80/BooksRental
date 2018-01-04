@@ -8,30 +8,39 @@
 
 @using (Html.BeginForm("Save", "Books"))
 {
+    @Html.ValidationSummary(true,"Please fill all required fields")
     <div class="form-group">
-        @Html.LabelFor(m => m.Book.Name)
-        @Html.TextBoxFor(m => m.Book.Name, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.Name)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Book.Author)
-        @Html.TextBoxFor(m => m.Book.Author, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Author)
+        @Html.TextBoxFor(m => m.Author, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.Name)
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(m => m.ReleaseDate)
+        @Html.TextBoxFor(m => m.ReleaseDate, "{0:d MMM yyyy}" ,new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.NumberInStock)
+    </div>    
+    <div class="form-group">
+        @Html.LabelFor(m => m.BookGenreId)
+        @Html.DropDownListFor(m => m.BookGenreId, new SelectList(Model.BookGenres, "Id","Name"), "Select Book Genre", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.BookGenreId)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Book.NumberInStock)
-        @Html.TextBoxFor(m => m.Book.NumberInStock, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Book.ReleaseDate)
-        @Html.TextBoxFor(m => m.Book.ReleaseDate, "{0:d MMM yyyy}" ,new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Book.DateAdded)
-        @Html.TextBoxFor(m => m.Book.DateAdded, "{0:d MMM yyyy}" , new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Book.BookGenreId)
-        @Html.DropDownListFor(m => m.Book.BookGenreId, new SelectList(Model.BookGenres, "Id","Name"), "Select Book Genre", new { @class = "form-control" })
-    </div>
-    @Html.HiddenFor(m=>m.Book.Id)
+        @Html.LabelFor(m => m.NumberInStock)
+        @Html.TextBoxFor(m => m.NumberInStock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.NumberInStock)
+    </div>    
+    @Html.HiddenFor(m=>m.Id)
+    @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
 }
